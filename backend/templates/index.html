@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333; /* Dark gray text color */
+        }
+        h2 {
+            color: #007bff; /* Blue header text color */
+        }
+        .rocket {
+            font-size: 36px; /* Larger rocket emoji */
+        }
+    </style>
+</head>
+<body>
+    {% for i in names %}
+        <ul>
+            <li>{{i}}</li>
+        </ul>
+    {% endfor %}
+
+    <h2>This is the index page</h2>
+    <p>Welcome to our website! 🎉</p>
+    <p>Feel free to explore our content. 🚀</p>
+    <p>Don't forget to check out our latest updates! 📝</p>
+    <p>Have a great day! 😊</p>
+</body>
+</html>
