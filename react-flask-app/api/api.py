@@ -28,13 +28,32 @@ def index():
 
 @app.route('/api/create', methods=['POST'])
 def create():
-    data = json.loads(request.data)
-    todo = Todo(content=data.content)
-    db.session.add(todo)
+    data = request.json
+    if 'content' in data:
+        content = data['content']
+        todo = Todo(content=content)
+        db.session.add(todo)
+        db.session.commit()
+        return jsonify({'message': 'Todo created successfully'})
+    else:
+        return jsonify({'error': 'Content attribute is missing in the request data'})
+
+@app.route("/api/<int:id>")
+def show(id):
+    return jsonify([*map(todo_serializer, Todo.query.filter_by(id=id))])
+
+@app.route("/api/<int:id>", methods=["POST"])
+def delete(id):
+    content_id = id
+    todo = Todo.query.get(content_id)
+    db.session.delete(todo)
     db.session.commit()
+
     return {
-        "201": "todo created successfully"
+        "204": "Deleted successfully"
     }
+
+
 
 CORS(app)
 if __name__ == '__main__':   
