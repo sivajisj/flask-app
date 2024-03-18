@@ -21,7 +21,25 @@ a {
 a:hover {
   color: #535bf2;
 }
+li{
+  list-style-type: none;
+}
 
+/* Define styles for the delete button */
+.delete-button {
+  margin: 10px;
+  background-color: #ff6961; /* Red color for delete button */
+  color: #ffffff; /* White text color */
+  border: none; /* Remove button border */
+  padding: 8px 16px; /* Add padding */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 4px; /* Add border radius for rounded corners */
+}
+
+/* Define styles for delete button on hover */
+.delete-button:hover {
+  background-color: #e63946; /* Darker red color on hover */
+}
 body {
   margin: 0;
   display: flex;
